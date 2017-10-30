@@ -6,4 +6,4 @@
 - handle lowercase commands
 
 # Could
-- 
+- output sentences
