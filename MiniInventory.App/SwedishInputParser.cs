@@ -2,7 +2,7 @@ using MiniInventory.App.Commands;
 
 namespace MiniInventory.App
 {
-    public class SwedishInputParser
+    public class SwedishInputParser : IParser
     {
         public ICommand Parse(string command)
         {

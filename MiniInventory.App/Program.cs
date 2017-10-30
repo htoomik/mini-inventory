@@ -2,11 +2,22 @@
 
 namespace MiniInventory.App
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var parser = new SwedishInputParser();
+            var inventory = new Inventory();
+            var processor = new Processor(parser, inventory);
+
+            var commandString = Console.ReadLine();
+            while(!string.IsNullOrEmpty(commandString))
+            {
+                var result = processor.Process(commandString);
+                if (!string.IsNullOrEmpty(result))
+                    Console.WriteLine(result);
+                commandString = Console.ReadLine();
+            }
         }
     }
 }
