@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MiniInventory.App
 {
-    public class Inventory
+    public class Inventory : IInventory
     {
         private int count;
 

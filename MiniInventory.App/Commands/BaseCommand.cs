@@ -9,5 +9,8 @@ namespace MiniInventory.App.Commands
         {
             this.Argument = argument;
         }
+
+
+        public abstract string Execute(IInventory inventory);
     }
 }
