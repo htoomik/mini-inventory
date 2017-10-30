@@ -8,16 +8,10 @@ namespace MiniInventory.App
         {
             var parser = new SwedishInputParser();
             var inventory = new Inventory();
-            var processor = new Processor(parser, inventory);
+            var consoleWrapper = new ConsoleWrapper();
 
-            var commandString = Console.ReadLine();
-            while(!string.IsNullOrEmpty(commandString))
-            {
-                var result = processor.Process(commandString);
-                if (!string.IsNullOrEmpty(result))
-                    Console.WriteLine(result);
-                commandString = Console.ReadLine();
-            }
+            var processor = new Processor(consoleWrapper, parser, inventory);
+            processor.Process();
         }
     }
 }
