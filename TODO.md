@@ -1,4 +1,5 @@
 # Must
+- write README
 - handle invalid input in parser
 
 # Should
