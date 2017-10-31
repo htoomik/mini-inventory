@@ -10,7 +10,7 @@ namespace MiniInventory.App
                 return new NoOpCommand();
 
             var firstLetter = command.Substring(0, 1);
-            int number = 0;
+            var number = 0;
             if (command.Length > 1)
                 int.TryParse(command.Substring(1), out number);
 
