@@ -59,14 +59,45 @@ namespace MiniInventory.Tests
         [Fact]
         public void When_CommandThrowsException_Expect_WritesFeedback()
         {
-           Assert.True(false);
+            var console = new Mock<IConsoleWrapper>();
+            var parser = new Mock<IParser>();
+            var inventory = new Mock<IInventory>();
+            var command = new Mock<ICommand>();
+
+            console.SetupSequence(c => c.ReadLine())
+                .Returns("a line")
+                .Returns("");
+            console.Setup(c => c.WriteLine(It.IsAny<string>()));
+
+            command.Setup(c => c.Execute(It.IsAny<IInventory>())).Throws(new NotEnoughStockException());
+
+            parser.Setup(p => p.Parse(It.IsAny<string>())).Returns(command.Object);
+
+            var processor = new Processor(console.Object, parser.Object, inventory.Object);
+            processor.Process();
+
+            console.VerifyAll();
         }
 
 
         [Fact]
-        public void When_ParserhrowsException_Expect_WritesFeedback()
+        public void When_ParserThrowsException_Expect_WritesFeedback()
         {
-            Assert.True(false);
+            var console = new Mock<IConsoleWrapper>();
+            var parser = new Mock<IParser>();
+            var inventory = new Mock<IInventory>();
+
+            console.SetupSequence(c => c.ReadLine())
+                .Returns("a line")
+                .Returns("");
+            console.Setup(c => c.WriteLine(It.IsAny<string>()));
+
+            parser.Setup(p => p.Parse(It.IsAny<string>())).Throws(new InvalidCommandException());
+
+            var processor = new Processor(console.Object, parser.Object, inventory.Object);
+            processor.Process();
+
+            console.VerifyAll();
         }
     }
 }

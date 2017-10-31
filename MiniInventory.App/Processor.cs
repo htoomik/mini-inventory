@@ -30,8 +30,27 @@ namespace MiniInventory.App
 
         private string Process(string commandString)
         {
-            var command = parser.Parse(commandString);
-            return command.Execute(inventory);
+            ICommand command;
+
+            try
+            {
+                command = parser.Parse(commandString);
+            }
+            catch (InvalidCommandException ex)
+            {
+                return ex.GetUserMessage() + "\r\n" + Texts.Instructions;
+            }
+            
+            string result;
+            try
+            {
+                result = command.Execute(inventory);
+            }
+            catch (NotEnoughStockException ex)
+            {
+                return ex.GetUserMessage();
+            }
+            return result;
         }
     }
 }
