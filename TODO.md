@@ -1,6 +1,5 @@
 # Must
 - write README
-- handle invalid input in parser
 
 # Should
 - refactor exiting into a command
