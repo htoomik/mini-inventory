@@ -54,5 +54,19 @@ namespace MiniInventory.Tests
 
             console.VerifyAll();
         }
-    }
+
+
+		[Fact]
+		public void When_CommandThrowsException_Expect_WritesFeedback()
+		{
+			Assert.True(false);
+		}
+
+
+		[Fact]
+		public void When_ParserhrowsException_Expect_WritesFeedback()
+		{
+			Assert.True(false);
+		}
+	}
 }
