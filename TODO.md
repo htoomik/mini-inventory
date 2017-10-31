@@ -1,11 +1,8 @@
 # Must
-- write README
+-
 
 # Should
 - refactor exiting into a command
-- print instructions on startup
-- print instructions in case of empty or invalid input
 
 # Could
-- handle lowercase commands
 - output sentences
