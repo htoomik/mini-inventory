@@ -4,7 +4,7 @@ using Xunit;
 
 namespace MiniInventory.Tests
 {
-    public class SwedishInputParserTest
+    public class SwedishInputParserTest_Valid
     {
         [Fact]
         public void When_EmptyString_Expect_NoOpCommand()
