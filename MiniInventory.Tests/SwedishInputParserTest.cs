@@ -1,6 +1,5 @@
 using MiniInventory.App;
 using MiniInventory.App.Commands;
-using Moq;
 using Xunit;
 
 namespace MiniInventory.Tests

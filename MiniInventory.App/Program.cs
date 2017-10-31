@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MiniInventory.App
+﻿namespace MiniInventory.App
 {
     public class Program
     {
