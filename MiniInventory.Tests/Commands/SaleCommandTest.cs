@@ -13,7 +13,7 @@ namespace MiniInventory.Tests.Commands
             const int count = 22;
             var inventory = new Mock<IInventory>();
 
-            var result = new SaleCommand(count).Execute(inventory.Object);
+            new SaleCommand(count).Execute(inventory.Object);
 
             inventory.Verify(i => i.Sale(count));
         }
