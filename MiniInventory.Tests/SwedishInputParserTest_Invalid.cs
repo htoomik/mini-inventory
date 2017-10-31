@@ -89,6 +89,13 @@ namespace MiniInventory.Tests
         }
 
 
+        [Fact]
+        public void TooLargeNumber()
+        {
+            AssertThrows("S9999999999");
+        }
+
+
         private static void AssertThrows(string commandString)
         {
             Assert.Throws<InvalidCommandException>(() => new SwedishInputParser().Parse(commandString));

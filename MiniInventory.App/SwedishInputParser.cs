@@ -5,7 +5,7 @@ namespace MiniInventory.App
 {
     public class SwedishInputParser : IParser
     {
-		private static readonly Regex validCommand = new Regex("^[A-Z]{1}[0-9]*$");
+		private static readonly Regex validCommand = new Regex("^[A-Z]{1}[0-9]{0,9}$");
 
         public ICommand Parse(string commandString)
 		{
