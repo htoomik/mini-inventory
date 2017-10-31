@@ -5,7 +5,10 @@ namespace MiniInventory.App.Commands
         public CountCommand() : base(0) {}
 
 
-        public override string Execute(IInventory inventory)
+		public override bool ExpectsArgument => false;
+
+
+		public override string Execute(IInventory inventory)
         {
             return inventory.Count().ToString();
         }

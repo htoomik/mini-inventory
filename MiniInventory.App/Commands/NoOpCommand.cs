@@ -5,7 +5,10 @@ namespace MiniInventory.App.Commands
         public NoOpCommand() : base(0) {}
 
 
-        public override string Execute(IInventory inventory)
+		public override bool ExpectsArgument => false;
+
+
+		public override string Execute(IInventory inventory)
         {
             return null;
         }

@@ -2,6 +2,6 @@ namespace MiniInventory.App
 {
     public interface IParser
     {
-        ICommand Parse(string command);
+        ICommand Parse(string commandString);
     }
 }

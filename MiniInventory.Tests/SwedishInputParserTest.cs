@@ -44,5 +44,26 @@ namespace MiniInventory.Tests
             Assert.IsType(typeof(CountCommand), result);
             Assert.Equal(0, result.Argument);
         }
-    }
+
+
+		[Fact]
+		public void When_TrailingWhitespace_Expect_NoProblem()
+		{
+			var result = new SwedishInputParser().Parse("I1 ");
+
+			Assert.IsType(typeof(DeliveryCommand), result);
+			Assert.Equal(1, result.Argument);
+		}
+
+
+
+		[Fact]
+		public void When_Lowercase_Expect_NoProblem()
+		{
+			var result = new SwedishInputParser().Parse("i1");
+
+			Assert.IsType(typeof(DeliveryCommand), result);
+			Assert.Equal(1, result.Argument);
+		}
+	}
 }

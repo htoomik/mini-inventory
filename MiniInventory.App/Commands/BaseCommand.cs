@@ -4,13 +4,14 @@ namespace MiniInventory.App.Commands
     {
         public int Argument { get; }
 
-
-        public BaseCommand(int argument)
+		
+		protected BaseCommand(int argument)
         {
-            this.Argument = argument;
+            Argument = argument;
         }
 
 
+		public abstract bool ExpectsArgument { get; }
         public abstract string Execute(IInventory inventory);
     }
 }

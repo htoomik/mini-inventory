@@ -5,7 +5,10 @@ namespace MiniInventory.App.Commands
         public SaleCommand(int argument) : base(argument) {}
 
 
-        public override string Execute(IInventory inventory)
+		public override bool ExpectsArgument => true;
+
+
+		public override string Execute(IInventory inventory)
         {
             inventory.Sale(Argument);
             return null;
